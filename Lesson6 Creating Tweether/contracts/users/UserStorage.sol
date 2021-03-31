@@ -11,7 +11,7 @@ contract UserStorage {
         bytes32 username;
     }
 
-    mapping (uint => Profile) profiles;
+    mapping (uint => Profile) public profiles;
 
     function createUser(bytes32 _username) public returns (uint) {
         
@@ -22,12 +22,11 @@ contract UserStorage {
         return lastestUserId;
     }
 
-    function getUserFromId(uint _userId) public view returns (uint, bytes32) {
-        return (
-            profiles[_userId].id,
-            profiles[_userId].username
-        );
-    }
-
+    // function getUserFromId(uint _userId) public view returns (uint, bytes32) {
+    //     return (
+    //         profiles[_userId].id,
+    //         profiles[_userId].username
+    //     );
+    // }
 
 }
