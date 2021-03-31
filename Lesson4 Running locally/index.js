@@ -49,16 +49,6 @@ const deployAndRunContract = async () => {
     })
     .on('confirmation', async (confNumber, receipt) => {
         console.log(confNumber, receipt);
-        // const { contractAddress } = receipt
-        // console.log("Deployed at", contractAddress);
-    
-        // // const contractInstance = new web3.eth.Contract(abi, contractAddress)
-    
-        // // const myName = await contractInstance.methods.getMyName().call();
-        // // console.log("Result from blockchain:", myName);
-    })
-    .on('confirmation', async (confNumber, receipt) => {
-        console.log(confNumber, receipt);
         const { contractAddress } = receipt;
         console.log("Deploy at", contractAddress);
 
