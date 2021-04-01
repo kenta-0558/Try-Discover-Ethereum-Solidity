@@ -7,9 +7,12 @@ contract BaseStorage is Owned {
 
     address public controllerAddress;
 
-    function setControllerAddress(address _controllerAddress) public {
-        
-        require(msg.sender == ownerAddress);
+    modifier onlyController() {
+        require(msg.sender == controllerAddress);
+        _;
+    }
+
+    function setControllerAddress(address _controllerAddress) public onlyOwner {
         
         controllerAddress = _controllerAddress;
     }   

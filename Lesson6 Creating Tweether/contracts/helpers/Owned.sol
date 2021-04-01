@@ -8,11 +8,14 @@ contract Owned {
 
     constructor() {
         ownerAddress = msg.sender;
-    }  
+    } 
 
-    function transferOwnership(address _newOwner) public {
-
+    modifier onlyOwner() {
         require(msg.sender == ownerAddress);
+        _;
+    } 
+
+    function transferOwnership(address _newOwner) public onlyOwner {
 
         require(_newOwner != address(0));
 

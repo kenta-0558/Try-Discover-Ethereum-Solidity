@@ -15,7 +15,7 @@ contract UserStorage is BaseStorage {
 
     mapping (uint => Profile) public profiles;
 
-    function createUser(bytes32 _username) public returns (uint) {
+    function createUser(bytes32 _username) public onlyController returns (uint) {
 
         require(msg.sender == controllerAddress);
         
