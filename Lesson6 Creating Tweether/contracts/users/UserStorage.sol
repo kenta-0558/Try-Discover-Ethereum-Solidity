@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
+import '../helpers/BaseStorage.sol';
 
-contract UserStorage {
+
+contract UserStorage is BaseStorage {
 
     uint lastestUserId = 0;
 
@@ -14,6 +16,8 @@ contract UserStorage {
     mapping (uint => Profile) public profiles;
 
     function createUser(bytes32 _username) public returns (uint) {
+
+        require(msg.sender == controllerAddress);
         
         lastestUserId++;
 
